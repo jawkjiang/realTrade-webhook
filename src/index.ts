@@ -12,7 +12,7 @@ if (!apiKey || !apiSecret){
     process.exit(1);
 }
 const client = new Client(apiKey, apiSecret);
-const symbolArray = ['BTCUSDT', 'ETHUSDT', 'ADAUSDT', 'XRPUSDT', 'DOTUSDT'];
+const symbolArray = ['XMRUSDT', 'SOLUSDT', 'AAVEUSDT', 'QNTUSDT', 'ORDIUSDT'];
 const qtyStepArray = [0.01, 0.1, 0.01, 0.01, 0.01];
 const leverageArray = [8.63636, 5.27777, 6.333333, 7.30769, 9.5];
 
