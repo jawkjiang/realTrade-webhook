@@ -40,10 +40,7 @@ app.post('/webhook', async (req, res) => {
     }
     const action = data.action;
 
-    if (client.open){
-        res.send('账户已开仓另一笔交易，请等待该笔交易结束。');
-    }
-    else if (!symbolArray.includes(symbol)){
+    if (!symbolArray.includes(symbol)){
         res.send('无效交易对');
     }
     else if (action !== 'Buy' && action !== 'Sell'){
@@ -56,6 +53,9 @@ app.post('/webhook', async (req, res) => {
             client.open = false;
             console.log('已平多仓，货币对：', symbol);
             res.send('已平多仓');
+        }
+        else if (client.open){
+            res.send('账户已开仓另一笔交易，请等待该笔交易结束。');
         }
         else {
             // 基本信息
