@@ -32,6 +32,12 @@ app.post('/webhook', async (req, res) => {
     console.log(req.body);
     const data = req.body;
     const symbol = data.symbol;
+    if (data.action === 'sell'){
+        data.action = 'Sell';
+    }
+    else if (data.action === 'buy'){
+        data.action = 'Buy';
+    }
     const action = data.action;
 
     if (client.open){
